@@ -1,7 +1,7 @@
 #include <osg/Vec3>
 #include <vector>
 
-std::vector<osg::Vec3f> Caculate(osg::Vec3f v1, osg::Vec3f v2, float fWidth)
+std::vector<osg::Vec3f> Calculate(osg::Vec3f v1, osg::Vec3f v2, float fWidth)
 {
 	std::vector<osg::Vec3f> result;
 	if (fWidth <= 0.0)
@@ -35,6 +35,6 @@ int main()
 	osg::Vec3f vt2(1.732, 1.0, 0.0);
 	float ft1 = 4;
 
-	auto result = Caculate(vt1, vt2, ft1);
+	auto result = Calculate(vt1, vt2, ft1);
 	return 0;
 }
