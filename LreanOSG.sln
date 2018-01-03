@@ -7,7 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hello_OSG", "Hello_OSG\Hell
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LightSource", "LightSource\LightSource.vcxproj", "{1F20BB55-E0BF-4A01-8E81-160B47462D8F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Caculate", "Caculate\Caculate.vcxproj", "{C5734199-1DB2-4969-B270-8C7111CBB540}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Calculate", "Caculate\Caculate.vcxproj", "{C5734199-1DB2-4969-B270-8C7111CBB540}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FSReaderWriter", "FSReaderWriter\FSReaderWriter.vcxproj", "{935E0207-88A0-4EE9-81FC-632DE20D482F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BillBorad", "BillBorad\BillBorad.vcxproj", "{1BF348D6-284D-4462-AADA-F399AB012ECB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,22 @@ Global
 		{C5734199-1DB2-4969-B270-8C7111CBB540}.Release|x64.Build.0 = Release|x64
 		{C5734199-1DB2-4969-B270-8C7111CBB540}.Release|x86.ActiveCfg = Release|Win32
 		{C5734199-1DB2-4969-B270-8C7111CBB540}.Release|x86.Build.0 = Release|Win32
+		{935E0207-88A0-4EE9-81FC-632DE20D482F}.Debug|x64.ActiveCfg = Debug|x64
+		{935E0207-88A0-4EE9-81FC-632DE20D482F}.Debug|x64.Build.0 = Debug|x64
+		{935E0207-88A0-4EE9-81FC-632DE20D482F}.Debug|x86.ActiveCfg = Debug|Win32
+		{935E0207-88A0-4EE9-81FC-632DE20D482F}.Debug|x86.Build.0 = Debug|Win32
+		{935E0207-88A0-4EE9-81FC-632DE20D482F}.Release|x64.ActiveCfg = Release|x64
+		{935E0207-88A0-4EE9-81FC-632DE20D482F}.Release|x64.Build.0 = Release|x64
+		{935E0207-88A0-4EE9-81FC-632DE20D482F}.Release|x86.ActiveCfg = Release|Win32
+		{935E0207-88A0-4EE9-81FC-632DE20D482F}.Release|x86.Build.0 = Release|Win32
+		{1BF348D6-284D-4462-AADA-F399AB012ECB}.Debug|x64.ActiveCfg = Debug|x64
+		{1BF348D6-284D-4462-AADA-F399AB012ECB}.Debug|x64.Build.0 = Debug|x64
+		{1BF348D6-284D-4462-AADA-F399AB012ECB}.Debug|x86.ActiveCfg = Debug|Win32
+		{1BF348D6-284D-4462-AADA-F399AB012ECB}.Debug|x86.Build.0 = Debug|Win32
+		{1BF348D6-284D-4462-AADA-F399AB012ECB}.Release|x64.ActiveCfg = Release|x64
+		{1BF348D6-284D-4462-AADA-F399AB012ECB}.Release|x64.Build.0 = Release|x64
+		{1BF348D6-284D-4462-AADA-F399AB012ECB}.Release|x86.ActiveCfg = Release|Win32
+		{1BF348D6-284D-4462-AADA-F399AB012ECB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
