@@ -97,6 +97,43 @@ ref_ptr<Node> createAutoTransfrom(
 	return autoTrans.get();
 }
 
+ref_ptr<Node> createOccluder(const Vec3 &v1, const Vec3 &v2, const Vec3 &v3, const Vec3 &v4)
+{
+	ref_ptr<OccluderNode> occ = new OccluderNode();
+	ref_ptr<ConvexPlanarOccluder> cpo = new ConvexPlanarOccluder();
+	occ->setOccluder(cpo.get());
+	occ->setName("Occluder");
+
+	ConvexPlanarPolygon &cpp = cpo->getOccluder();
+	cpp.add(v1);
+	cpp.add(v2);
+	cpp.add(v3);
+	cpp.add(v4);
+
+	ref_ptr<Geometry> geom = new Geometry();
+	ref_ptr<Vec3Array> coords = new Vec3Array(cpp.getVertexList().begin(), cpp.getVertexList().end());
+	geom->setVertexArray(coords);
+
+	ref_ptr<Vec4Array> colors = new Vec4Array(1);
+	colors->push_back(Vec4(1.0f, 1.0f, 1.0f, 1.0f));
+	geom->setColorArray(colors);
+	geom->setColorBinding(Geometry::BIND_OVERALL);
+	// ????
+	geom->addPrimitiveSet(new DrawArrays(PrimitiveSet::QUADS, 0, 4));
+	ref_ptr<Geode> geode = new Geode();
+	geode->addDrawable(geom.get());
+
+	ref_ptr<StateSet> stateset = new StateSet();
+	stateset->setMode(GL_LIGHTING, StateAttribute::OFF);
+	stateset->setMode(GL_BLEND, StateAttribute::ON);
+	//ÉèÖÃÍ¸Ã÷äÖÈ¾Ôª
+	stateset->setRenderingHint(StateSet::TRANSPARENT_BIN);
+	geom->setStateSet(stateset);
+
+	occ->addChild(geode.get());
+	return occ.get();
+}
+
 int main()
 {
 	ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer();
@@ -146,11 +183,14 @@ int main()
 	switch1->addChild(pat1.get(), true);
 	switch1->addChild(node1.get(), true);
 
-	//LOD Level of detail
+	//LOD--Level of detail
 	ref_ptr<LOD> lodNode = new LOD();
 	lodNode->addChild(cowNode.get(), 0.0f, 30.0f);
 	lodNode->addChild(gliderNode.get(), 20.0f, 50.0f);
 	osgDB::writeNodeFile(*(lodNode.get()), "lod.osg");
+
+	//OccluderNode
+
 
 
 	//root->addChild(pat.get());
