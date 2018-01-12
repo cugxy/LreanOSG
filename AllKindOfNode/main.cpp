@@ -97,13 +97,13 @@ ref_ptr<Node> createAutoTransfrom(
 	return autoTrans.get();
 }
 
-
 int main()
 {
 	ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer();
 
 	ref_ptr<Group> root = new Group();
-	ref_ptr<Node> node = readNodeFile(kstrDataPath + "cow.osg");
+	ref_ptr<Node> cowNode = readNodeFile(kstrDataPath + "cow.osg");
+	ref_ptr<Node> gliderNode = readNodeFile(kstrDataPath + "glider.osg");
 
 	//BillBoard
 	ref_ptr<Image> image = osgDB::readImageFile(kstrDataPath + "Images\\tree0.rgba");
@@ -115,10 +115,10 @@ int main()
 	ref_ptr<PositionAttitudeTransform> pat1 = new PositionAttitudeTransform();
 	pat1->setPosition(Vec3(-10.0f, 0.0f, 0.0f));
 	pat1->setScale(Vec3(0.5f, 0.5f, 0.5f));
-	pat1->addChild(node.get());
+	pat1->addChild(cowNode.get());
 	ref_ptr<PositionAttitudeTransform> pat2 = new PositionAttitudeTransform();
 	pat2->setPosition(Vec3(10.0f, 0.0f, 0.0f));
-	pat2->addChild(node.get());
+	pat2->addChild(cowNode.get());
 
 	//MatrixTransform
 	ref_ptr<MatrixTransform> mt1 = new MatrixTransform();
@@ -126,12 +126,12 @@ int main()
 	m.makeTranslate(Vec3(10.0f, 0.0f, 0.0f));
 	m.makeRotate(45.0f, 1.0f, 0.0f, 0.0f);
 	mt1->setMatrix(m);
-	mt1->addChild(node.get());
+	mt1->addChild(cowNode.get());
 	ref_ptr<MatrixTransform> mt2 = new MatrixTransform();
 	Matrix t;
 	t.makeTranslate(Vec3(-10.0f, 0.0f, 0.0f));
 	mt2->setMatrix(t);
-	mt2->addChild(node.get());
+	mt2->addChild(cowNode.get());
 
 	//AutoTransform
 	std::string str("MDZZ");
@@ -146,6 +146,13 @@ int main()
 	switch1->addChild(pat1.get(), true);
 	switch1->addChild(node1.get(), true);
 
+	//LOD Level of detail
+	ref_ptr<LOD> lodNode = new LOD();
+	lodNode->addChild(cowNode.get(), 0.0f, 30.0f);
+	lodNode->addChild(gliderNode.get(), 20.0f, 50.0f);
+	osgDB::writeNodeFile(*(lodNode.get()), "lod.osg");
+
+
 	//root->addChild(pat.get());
 	//root->addChild(pat1.get());
 	//root->addChild(pat2.get());
@@ -155,7 +162,8 @@ int main()
 	//root->addChild(node2.get());
 	//root->addChild(node3.get());
 	//root->addChild(node4.get());
-	root->addChild(switch1);
+	//root->addChild(switch1);
+	root->addChild(lodNode);
 
 	osgUtil::Optimizer opt;
 	opt.optimize(root.get());
