@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1BF348D6-284D-4462-AADA-F399AB012ECB}</ProjectGuid>
+    <ProjectGuid>{977BD015-9D11-4741-BE91-440AA1D4D355}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>BillBorad</RootNamespace>
+    <RootNamespace>AllKindOfNode</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -149,9 +149,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="libInclude.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
