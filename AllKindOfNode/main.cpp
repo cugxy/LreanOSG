@@ -134,6 +134,20 @@ ref_ptr<Node> createOccluder(const Vec3 &v1, const Vec3 &v2, const Vec3 &v3, con
 	return occ.get();
 }
 
+ref_ptr<Group> createOccluderAroundModel(ref_ptr<Node> model)
+{
+	ref_ptr<Group> sence = new Group();
+	sence->addChild(model.get());
+	const BoundingSphere bs = model->getBound();
+	BoundingBox bb;
+	bb.expandBy(bs);
+	sence->addChild(createOccluder(bb.corner(0), bb.corner(1), bb.corner(5), bb.corner(4)));
+	sence->addChild(createOccluder(bb.corner(1), bb.corner(3), bb.corner(5), bb.corner(7)));
+	sence->addChild(createOccluder(bb.corner(2), bb.corner(0), bb.corner(4), bb.corner(6)));
+	sence->addChild(createOccluder(bb.corner(3), bb.corner(2), bb.corner(6), bb.corner(7)));
+	return sence.get();
+}
+
 int main()
 {
 	ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer();
@@ -190,8 +204,7 @@ int main()
 	osgDB::writeNodeFile(*(lodNode.get()), "lod.osg");
 
 	//OccluderNode
-
-
+	root->addChild(createOccluderAroundModel(node1.get()));
 
 	//root->addChild(pat.get());
 	//root->addChild(pat1.get());
@@ -203,7 +216,7 @@ int main()
 	//root->addChild(node3.get());
 	//root->addChild(node4.get());
 	//root->addChild(switch1);
-	root->addChild(lodNode);
+	//root->addChild(lodNode);
 
 	osgUtil::Optimizer opt;
 	opt.optimize(root.get());

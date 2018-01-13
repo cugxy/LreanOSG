@@ -4,8 +4,8 @@ LOD {
   Radius -1
   RangeMode DISTANCE_FROM_EYE_POINT
   RangeList 2 {
-    0 130
-    100 200
+    0 30
+    20 50
   }
   num_children 2
   Group {
