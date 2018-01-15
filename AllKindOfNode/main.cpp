@@ -15,6 +15,8 @@
 
 #include <iostream>
 
+#include "MyCopyOp.h"
+
 using namespace osg;
 using namespace osgDB;
 
@@ -204,9 +206,9 @@ int main()
 	osgDB::writeNodeFile(*(lodNode.get()), "lod.osg");
 
 	//OccluderNode
-	root->addChild(createOccluderAroundModel(node1.get()));
+	//root->addChild(createOccluderAroundModel(node1.get()));
 
-	//root->addChild(pat.get());
+	root->addChild(pat.get());
 	//root->addChild(pat1.get());
 	//root->addChild(pat2.get());
 	//root->addChild(mt1.get());
@@ -220,6 +222,11 @@ int main()
 
 	osgUtil::Optimizer opt;
 	opt.optimize(root.get());
+
+	ref_ptr<Node> shallowCopy = dynamic_cast<Node*>(root->clone(CopyOp::SHALLOW_COPY));
+	ref_ptr<Node> deepCopy = dynamic_cast<Node*>(root->clone(CopyOp::DEEP_COPY_ALL));
+	ref_ptr<Node> myShallowCopy = dynamic_cast<Node*>(root->clone(MyCopyOp(CopyOp::SHALLOW_COPY)));
+	ref_ptr<Node> mydeepCopy = dynamic_cast<Node*>(root->clone(MyCopyOp(CopyOp::DEEP_COPY_ALL)));
 
 	viewer->setSceneData(root.get());
 	viewer->realize();
