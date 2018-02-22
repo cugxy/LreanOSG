@@ -75,7 +75,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\bin\debug</OutDir>
-    <IncludePath>E:\git\LreanOSG;$(IncludePath)</IncludePath>
+    <IncludePath>E:\3rdParty\OSG3.0.0\include;E:\git\LreanOSG;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\3rdParty\OSG3.0.0\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
