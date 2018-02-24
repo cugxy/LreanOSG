@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Windows.h>
+
 #ifdef  _DEBUG
 #pragma comment(lib, "osgViewerd.lib")
 #pragma comment(lib, "osgDBd.lib")
