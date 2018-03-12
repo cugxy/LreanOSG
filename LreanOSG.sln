@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DrawGeometry", "DrawGeometr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClipeNode", "ClipeNode\ClipeNode.vcxproj", "{07CF69BE-DB34-444C-A1F8-46E854D8E082}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Texture2D", "Texture2D\Texture2D.vcxproj", "{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{07CF69BE-DB34-444C-A1F8-46E854D8E082}.Release|x64.Build.0 = Release|x64
 		{07CF69BE-DB34-444C-A1F8-46E854D8E082}.Release|x86.ActiveCfg = Release|Win32
 		{07CF69BE-DB34-444C-A1F8-46E854D8E082}.Release|x86.Build.0 = Release|Win32
+		{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}.Debug|x64.ActiveCfg = Debug|x64
+		{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}.Debug|x64.Build.0 = Debug|x64
+		{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}.Debug|x86.ActiveCfg = Debug|Win32
+		{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}.Debug|x86.Build.0 = Debug|Win32
+		{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}.Release|x64.ActiveCfg = Release|x64
+		{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}.Release|x64.Build.0 = Release|x64
+		{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}.Release|x86.ActiveCfg = Release|Win32
+		{F9632644-B8A1-4865-9B50-CCBC0E4F0C59}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

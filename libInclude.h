@@ -20,4 +20,4 @@
 #pragma comment(lib, "osgText.lib")
 #endif //  _DEBUG
 #include <string>
-const std::string kstrDataPath = "E:\\3rdParty\\OSG3.0.0\\data\\";
+const std::string kstrDataPath = "E:/3rdParty/OSG3.0.0/data/";
