@@ -66,7 +66,7 @@ int main()
 {
 	osg::ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer();
 	osg::ref_ptr<osg::Group> root = new osg::Group();
-	std::string imgname = kstrDataPath + "Images/forestRoof.png";
+	std::string imgname = kstrDataPath + "Images/tree0.rgba";
 	osg::ref_ptr<osg::Image> img = osgDB::readImageFile(imgname);
 	osg::ref_ptr<osg::Node> node = createNode();
 	osg::ref_ptr<osg::StateSet> stateset = new osg::StateSet();
